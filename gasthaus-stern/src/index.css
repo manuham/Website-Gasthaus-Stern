@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties ─────────────────────────────────────────────────── */
+:root {
+  --cream:       #F4EDE0;
+  --linen:       #E8DFD0;
+  --sage:        #7A8B6F;
+  --sage-deep:   #5A6B53;
+  --amber:       #D4A24C;
+  --amber-deep:  #B5852E;
+  --chestnut:    #5C3D2E;
+  --ink:         #2A1F18;
+  --bordeaux:    #7A2E2A;
+}
+
+/* ── Base reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+/* ── Focus visible ring — amber ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Fraunces variable font axes helper ─────────────────────────────────────── */
+.font-display {
+  font-family: 'Fraunces', serif;
+}
+
+/* ── Smooth image rendering ─────────────────────────────────────────────────── */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Remove list styles ─────────────────────────────────────────────────────── */
+ul, ol {
+  list-style: none;
+}
+
+/* ── Prefers-reduced-motion: disable animations ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .kastanienblatt {
+    display: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

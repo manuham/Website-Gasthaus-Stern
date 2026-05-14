@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gasthaus Stern Bludenz — Gutbürgerliches Wirtshaus &amp; Gastgarten in Vorarlberg</title>
+    <meta name="description" content="Familiengeführtes Gasthaus im Herzen von Bludenz seit über 30 Jahren. Wiener Schnitzel, Käsespätzle, Apfelstrudel. Schattiger Gastgarten unter Kastanien. Saal bis zu 80 Personen." />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gasthaus Stern Bludenz — Gutbürgerliches Wirtshaus &amp; Gastgarten" />
+    <meta property="og:description" content="Familiengeführtes Gasthaus im Herzen von Bludenz seit über 30 Jahren. Schattiger Gastgarten unter Kastanien." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80" />
+    <!-- Fonts: Fraunces (variable axes: wght, SOFT, opsz, italic), Inter, Caveat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- JSON-LD Restaurant Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Gasthaus Stern",
+      "description": "Familiengeführtes gutbürgerliches Gasthaus in Bludenz, Vorarlberg. Schattiger Gastgarten unter Kastanien, Saal für Feiern bis 80 Personen.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "St.-Peter-Straße 31",
+        "addressLocality": "Bludenz",
+        "postalCode": "6700",
+        "addressRegion": "Vorarlberg",
+        "addressCountry": "AT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.14905,
+        "longitude": 9.82680
+      },
+      "telephone": "+43 5552 62390",
+      "email": "kontakt@gasthaus-stern.at",
+      "url": "https://gasthaus-stern.at",
+      "priceRange": "€€",
+      "servesCuisine": ["Austrian", "Traditional"],
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "22:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "14:00" }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
