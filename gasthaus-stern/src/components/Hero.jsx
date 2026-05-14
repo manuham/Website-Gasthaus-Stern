@@ -106,8 +106,11 @@ export default function Hero() {
         loading="eager"
       />
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-chestnut/70 via-chestnut/20 to-transparent" />
+      {/* Background blur */}
+      <div className="absolute inset-0 backdrop-blur-[2px]" />
+
+      {/* Gradient overlay — darkened for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-chestnut/80 via-chestnut/40 to-chestnut/20" />
 
       {/* Kastanienblätter — 5 Blätter im Hintergrund */}
       {[
