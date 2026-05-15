@@ -142,7 +142,7 @@ export default function Hero() {
           </p>
 
           {/* H1 line 1 */}
-          <h1 className="overflow-hidden leading-none mb-1">
+          <h1 className="leading-none mb-1">
             <span
               ref={line1Ref}
               className="block font-display font-semibold text-cream opacity-0"
