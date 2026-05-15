@@ -102,15 +102,15 @@ export default function Hero() {
       <img
         src={HERO_IMAGE}
         alt="Gastgarten unter Kastanienbäumen im Sommer, warmes Nachmittagslicht"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-top scale-90 origin-top"
         loading="eager"
       />
 
       {/* Background blur */}
-      <div className="absolute inset-0 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 backdrop-blur-[4px]" />
 
       {/* Gradient overlay — darkened for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-chestnut/80 via-chestnut/40 to-chestnut/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-chestnut/85 via-chestnut/50 to-chestnut/30" />
 
       {/* Kastanienblätter — 5 Blätter im Hintergrund */}
       {[
