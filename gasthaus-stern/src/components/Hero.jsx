@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-// Unsplash search: "chestnut beer garden austrian inn summer afternoon dappled light"
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80'
+const HERO_IMAGE = '/hero.jpg'
 
 // Kastanienblatt SVG path (simplified leaf shape)
 const LEAF_PATH = 'M12 2C8 6 6 10 8 15C5 13 3 15 4 18C6 16 8 17 10 20C9 23 11 25 14 24C13 21 15 20 18 22C20 19 19 16 16 15C19 11 18 6 14 3Z'
@@ -100,7 +99,6 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-[720px] h-[100dvh] overflow-hidden" aria-label="Willkommen im Gasthaus Stern">
       {/* Background image */}
-      {/* Unsplash: chestnut beer garden austrian inn summer afternoon dappled light */}
       <img
         src={HERO_IMAGE}
         alt="Gastgarten unter Kastanienbäumen im Sommer, warmes Nachmittagslicht"

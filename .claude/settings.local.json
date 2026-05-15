@@ -7,7 +7,20 @@
       "Bash(npx tailwindcss:*)",
       "Bash(npm run:*)",
       "Bash(python3 -c ':*)",
-      "Bash(python -c ':*)"
+      "Bash(python -c ':*)",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=70\" -o preview_rustic_interior.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=70\" -o preview_restaurant_warm.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=70\" -o preview_biergarten.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=70\" -o p1.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=70\" -o p2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=70\" -o p3.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=70\" -o p4.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1599921841143-819065a55cc5?w=800&q=70\" -o s1.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1476224203421-9ac39bcb3b42?w=800&q=70\" -o s2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=70\" -o s3.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=70\" -o s4.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=70\" -o s5.jpg)"
     ]
   }
 }
