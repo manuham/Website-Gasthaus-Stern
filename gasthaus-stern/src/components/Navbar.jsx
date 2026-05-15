@@ -42,8 +42,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-4 inset-x-4 z-50 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:w-[calc(100%-2rem)] lg:max-w-[880px] rounded-full px-5 py-3 flex items-center justify-between transition-all duration-300
           ${scrolled
-            ? 'bg-cream/85 backdrop-blur-xl border border-chestnut/10 shadow-warm-sm'
-            : 'bg-cream/40 backdrop-blur-sm'
+            ? 'bg-cream/92 backdrop-blur-2xl border border-amber/20 shadow-warm-sm'
+            : 'bg-cream/30 backdrop-blur-sm'
           }`}
       >
         {/* Logo */}
@@ -64,7 +64,7 @@ export default function Navbar() {
             <li key={href}>
               <button
                 onClick={() => scrollTo(href)}
-                className="font-sans font-medium text-[14px] text-chestnut relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 rounded"
+                className="font-sans font-medium text-[14px] tracking-wide text-chestnut relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 rounded"
               >
                 {label}
                 <span className="absolute -bottom-0.5 left-0 w-0 h-[2px] bg-amber group-hover:w-full transition-[width] duration-[240ms] ease-out" />

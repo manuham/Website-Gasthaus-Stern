@@ -79,6 +79,7 @@ export default function Raeumlichkeiten() {
         <p className="font-sans font-medium text-[13px] tracking-widest text-amber uppercase text-center mb-4">
           Räumlichkeiten
         </p>
+        <div className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-amber/50 to-transparent my-3" aria-hidden="true" />
         <h2
           className="font-display italic font-normal text-chestnut text-center mx-auto max-w-[720px] mb-14"
           style={{ fontSize: 'clamp(36px, 5vw, 64px)', fontVariationSettings: '"SOFT" 100' }}
@@ -91,10 +92,10 @@ export default function Raeumlichkeiten() {
           {KARTEN.map((karte) => (
             <div
               key={karte.titel}
-              className="raum-card opacity-0 bg-cream rounded-[2rem] overflow-hidden shadow-[0_30px_80px_-40px_rgba(92,61,46,0.3)] flex flex-col"
+              className="raum-card opacity-0 bg-cream rounded-[2rem] overflow-hidden shadow-luxury flex flex-col"
             >
               {/* Image */}
-              <div className="aspect-[16/10] overflow-hidden">
+              <div className="aspect-[16/10] overflow-hidden relative">
                 {/* Unsplash: see alt for search keywords */}
                 <img
                   src={karte.bild}
@@ -102,6 +103,7 @@ export default function Raeumlichkeiten() {
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-chestnut/20 to-transparent pointer-events-none" aria-hidden="true" />
               </div>
 
               {/* Content */}
@@ -110,7 +112,7 @@ export default function Raeumlichkeiten() {
                   <h3 className="font-display font-medium text-[28px] text-chestnut leading-snug">
                     {karte.titel}
                   </h3>
-                  <span className="shrink-0 bg-amber/20 text-amber-deep rounded-full px-3 py-1 font-sans font-medium text-[12px] whitespace-nowrap mt-1">
+                  <span className="shrink-0 bg-amber/10 text-amber-deep border border-amber/30 rounded-full px-3 py-1 font-sans font-medium text-[12px] tracking-wide whitespace-nowrap mt-1">
                     {karte.kapazitaet}
                   </span>
                 </div>

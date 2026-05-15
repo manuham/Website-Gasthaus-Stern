@@ -110,7 +110,7 @@ export default function Hero() {
       <div className="absolute inset-0 backdrop-blur-[1px]" />
 
       {/* Gradient overlay — darkened for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-chestnut/85 via-chestnut/50 to-chestnut/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-chestnut/90 via-chestnut/55 to-chestnut/20" />
 
       {/* Kastanienblätter — 5 Blätter im Hintergrund */}
       {[
@@ -134,6 +134,7 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col justify-end h-full pl-8 md:pl-20 pb-12 md:pb-16 lg:pb-24">
         <div className="max-w-2xl">
           {/* Eyebrow */}
+          <div className="h-px bg-amber/50 w-12 mb-4" aria-hidden="true" />
           <p
             ref={eyebrowRef}
             className="font-sans font-medium text-[13px] tracking-widest text-amber uppercase mb-4 opacity-0"
@@ -145,7 +146,7 @@ export default function Hero() {
           <h1 className="leading-none mb-1">
             <span
               ref={line1Ref}
-              className="block font-display font-semibold text-cream opacity-0"
+              className="block font-display font-semibold text-cream hero-glow-cream opacity-0"
               style={{
                 fontSize: 'clamp(32px, 6vw, 88px)',
                 fontVariationSettings: '"SOFT" 80',
@@ -159,7 +160,7 @@ export default function Hero() {
           <div className="mb-6">
             <span
               ref={line2Ref}
-              className="block font-display italic font-normal text-amber opacity-0"
+              className="block font-display italic font-normal text-amber hero-glow-amber opacity-0"
               style={{
                 fontSize: 'clamp(38px, 9vw, 140px)',
                 fontVariationSettings: '"SOFT" 100',
@@ -173,7 +174,7 @@ export default function Hero() {
           {/* Sub-line */}
           <p
             ref={subRef}
-            className="font-sans font-normal text-[18px] text-cream/90 max-w-[52ch] mb-8 opacity-0"
+            className="font-sans font-normal text-[18px] text-cream/95 max-w-[52ch] mb-8 opacity-0"
           >
             Kleines, familiengeführtes Wirtshaus in Bludenz. Echte österreichische Küche. Schattiger Gastgarten. Ein Saal für Ihre Feier.
           </p>
@@ -182,13 +183,13 @@ export default function Hero() {
           <div ref={ctaRef} className="flex flex-wrap gap-4 opacity-0">
             <button
               onClick={() => scrollTo('#kontakt')}
-              className="bg-bordeaux hover:bg-bordeaux/90 text-cream rounded-full px-7 py-3.5 font-sans font-medium text-[16px] transition-transform duration-[240ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2"
+              className="bg-bordeaux hover:bg-bordeaux/90 text-cream rounded-full px-8 py-4 font-sans font-medium text-[15px] tracking-wide transition-all duration-[240ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.04] hover:shadow-[0_0_0_2px_rgba(212,162,76,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2"
             >
               Tisch reservieren
             </button>
             <button
               onClick={() => scrollTo('#speisekarte')}
-              className="border-2 border-cream text-cream rounded-full px-7 py-3.5 font-sans font-medium text-[16px] hover:border-amber hover:text-amber transition-colors duration-[240ms] hover:scale-[1.04] transform ease-[cubic-bezier(0.34,1.56,0.64,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2"
+              className="border-2 border-cream/80 text-cream rounded-full px-8 py-4 font-sans font-medium text-[15px] tracking-wide hover:border-amber hover:text-amber transition-all duration-[240ms] hover:scale-[1.04] transform ease-[cubic-bezier(0.34,1.56,0.64,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2"
             >
               Zur Speisekarte
             </button>

@@ -45,7 +45,7 @@ export default function Bewertungen() {
         </h2>
 
         {/* Trust strip */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
           <div className="flex gap-0.5" aria-label="5 Sterne">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star key={i} size={20} className="text-amber fill-amber" />
@@ -59,17 +59,20 @@ export default function Bewertungen() {
           </span>
         </div>
 
+        {/* Separator */}
+        <div className="h-px w-48 mx-auto bg-gradient-to-r from-transparent via-cream/30 to-transparent mb-10" aria-hidden="true" />
+
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {BEWERTUNGEN.map((b, i) => (
             <div
               key={i}
-              className="bewertung-card opacity-0 bg-cream/[0.08] backdrop-blur-sm border border-cream/15 rounded-[2rem] p-8 md:p-10 flex flex-col"
+              className="bewertung-card opacity-0 bg-cream/[0.10] backdrop-blur-md border border-amber/20 rounded-[2rem] p-8 md:p-10 flex flex-col"
             >
               {/* Opening quote glyph */}
               <div
-                className="font-display italic text-amber leading-none mb-4 select-none"
-                style={{ fontSize: 80, lineHeight: 0.5, fontVariationSettings: '"SOFT" 100' }}
+                className="font-display italic text-amber leading-none mb-6 select-none"
+                style={{ fontSize: 120, lineHeight: 0.4, fontVariationSettings: '"SOFT" 100' }}
                 aria-hidden="true"
               >
                 "

@@ -75,9 +75,11 @@ export default function SpeisekartePreview() {
         {/* Right column — Menu card */}
         <div className="md:w-3/5">
           <div
-            className="bg-linen rounded-[2rem] p-8 md:p-10 shadow-warm"
+            className="bg-linen rounded-[2rem] overflow-hidden shadow-luxury"
             ref={rowsRef}
           >
+            <div className="h-[3px] bg-gradient-to-r from-amber/40 via-amber to-amber/40" aria-hidden="true" />
+            <div className="p-8 md:p-10">
             <p className="font-sans font-medium text-[13px] tracking-widest text-amber uppercase mb-6">
               AUSWAHL · à la carte
             </p>
@@ -109,10 +111,11 @@ export default function SpeisekartePreview() {
                 </div>
               ))}
             </div>
+            </div>
           </div>
 
           {/* Tagesmenü teaser */}
-          <div className="bg-sage rounded-[2rem] p-8 mt-4 text-cream">
+          <div className="rounded-[2rem] p-8 mt-4 text-cream" style={{ background: 'linear-gradient(135deg, #5A6B53 0%, #7A8B6F 100%)' }}>
             <p className="font-sans font-semibold text-[15px] text-cream mb-1">Mittagsmenü.</p>
             <p className="font-sans font-normal text-[15px] text-cream/90">
               Mo–Fr wechselnd, von 11:30 bis 14:00. Suppe + Hauptspeise ab € 11,90.

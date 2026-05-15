@@ -66,6 +66,21 @@ ul, ol {
   list-style: none;
 }
 
+/* ── Hero text glow ─────────────────────────────────────────────────────────── */
+.hero-glow-cream {
+  text-shadow:
+    0 0 40px rgba(244, 237, 224, 0.35),
+    0 0 80px rgba(244, 237, 224, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-glow-amber {
+  text-shadow:
+    0 0 60px rgba(212, 162, 76, 0.55),
+    0 0 120px rgba(212, 162, 76, 0.28),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
 /* ── Prefers-reduced-motion: disable animations ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .kastanienblatt {

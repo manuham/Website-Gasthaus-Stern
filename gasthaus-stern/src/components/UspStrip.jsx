@@ -53,22 +53,22 @@ export default function UspStrip() {
   return (
     <section ref={sectionRef} className="bg-cream py-20 md:py-28" aria-label="Unsere drei Versprechen">
       {/* Top hairline */}
-      <div className="h-px bg-amber/30 w-32 mx-auto mb-16" />
+      <div className="h-px w-48 mx-auto mb-16 bg-gradient-to-r from-transparent via-amber/40 to-transparent" />
 
       <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         {USPS.map(({ Icon, heading, text }) => (
           <div key={heading} className="usp-card flex flex-col items-center text-center gap-4 opacity-0">
-            <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center">
-              <Icon size={20} className="text-cream" strokeWidth={1.8} />
+            <div className="w-12 h-12 rounded-full bg-sage/15 border border-amber/30 flex items-center justify-center shadow-[0_0_0_4px_rgba(212,162,76,0.08)]">
+              <Icon size={22} className="text-sage-deep" strokeWidth={1.6} />
             </div>
-            <h3 className="font-display font-medium text-[20px] text-chestnut">{heading}</h3>
+            <h3 className="font-display font-medium text-[21px] text-chestnut tracking-tight">{heading}</h3>
             <p className="font-sans font-normal text-[14px] text-ink/70">{text}</p>
           </div>
         ))}
       </div>
 
       {/* Bottom hairline */}
-      <div className="h-px bg-amber/30 w-32 mx-auto mt-16" />
+      <div className="h-px w-48 mx-auto mt-16 bg-gradient-to-r from-transparent via-amber/40 to-transparent" />
     </section>
   )
 }

@@ -81,7 +81,7 @@ export default function UeberUns() {
           <img
             src={PORTRAIT_IMAGE}
             alt="Gasthaus Stern von außen, warmer Sommertag in Bludenz"
-            className="w-full rounded-[2rem] shadow-warm object-cover"
+            className="w-full rounded-[2rem] shadow-luxury object-cover ring-1 ring-amber/20"
             style={{ aspectRatio: '3/4' }}
             loading="lazy"
           />
@@ -98,7 +98,7 @@ export default function UeberUns() {
             style={{
               fontSize: 'clamp(40px, 5vw, 72px)',
               fontVariationSettings: '"SOFT" 100',
-              lineHeight: 1.1,
+              lineHeight: 1.05,
             }}
           >
             Seit über 30 Jahren<br />unsere Familie. Ihr Wirtshaus.
@@ -114,9 +114,10 @@ export default function UeberUns() {
           </p>
 
           {/* Signature — Caveat font */}
+          <div className="h-px w-16 bg-amber/40 mt-8 mb-3" aria-hidden="true" />
           <p
             ref={sigRef}
-            className="font-script text-[36px] text-chestnut mt-8 opacity-0"
+            className="font-script text-[40px] text-amber-deep mt-0 opacity-0"
           >
             — Sieglinde Baumann
           </p>

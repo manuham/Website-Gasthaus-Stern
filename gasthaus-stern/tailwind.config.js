@@ -23,8 +23,10 @@ export default {
         script:  ['"Caveat"', 'cursive'],
       },
       boxShadow: {
-        warm:    '0 30px 80px -40px rgba(92,61,46,0.30)',
-        'warm-sm':'0 20px 60px -30px rgba(92,61,46,0.25)',
+        warm:         '0 30px 80px -40px rgba(92,61,46,0.30)',
+        'warm-sm':    '0 20px 60px -30px rgba(92,61,46,0.25)',
+        luxury:       '0 40px 120px -40px rgba(92,61,46,0.45)',
+        'glow-amber': '0 0 40px 0px rgba(212,162,76,0.25)',
       },
     },
   },
