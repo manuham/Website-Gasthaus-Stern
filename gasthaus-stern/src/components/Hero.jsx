@@ -131,7 +131,7 @@ export default function Hero() {
       <div id="hero-sentinel" className="absolute bottom-[40%] left-0 w-px h-px" aria-hidden="true" />
 
       {/* Hero content — bottom-left */}
-      <div className="relative z-10 flex flex-col justify-end h-full pl-8 md:pl-20 pb-24">
+      <div className="relative z-10 flex flex-col justify-end h-full pl-8 md:pl-20 pb-12 md:pb-16 lg:pb-24">
         <div className="max-w-2xl">
           {/* Eyebrow */}
           <p
@@ -147,7 +147,7 @@ export default function Hero() {
               ref={line1Ref}
               className="block font-display font-semibold text-cream opacity-0"
               style={{
-                fontSize: 'clamp(40px, 7vw, 88px)',
+                fontSize: 'clamp(32px, 6vw, 88px)',
                 fontVariationSettings: '"SOFT" 80',
               }}
             >
@@ -161,7 +161,7 @@ export default function Hero() {
               ref={line2Ref}
               className="block font-display italic font-normal text-amber opacity-0"
               style={{
-                fontSize: 'clamp(56px, 11vw, 140px)',
+                fontSize: 'clamp(38px, 9vw, 140px)',
                 fontVariationSettings: '"SOFT" 100',
                 lineHeight: 0.95,
               }}

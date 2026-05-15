@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 z-50 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[880px] rounded-full px-5 py-3 flex items-center justify-between transition-all duration-300
+        className={`fixed top-4 inset-x-4 z-50 lg:left-1/2 lg:right-auto lg:-translate-x-1/2 lg:w-[calc(100%-2rem)] lg:max-w-[880px] rounded-full px-5 py-3 flex items-center justify-between transition-all duration-300
           ${scrolled
             ? 'bg-cream/85 backdrop-blur-xl border border-chestnut/10 shadow-warm-sm'
             : 'bg-cream/40 backdrop-blur-sm'
