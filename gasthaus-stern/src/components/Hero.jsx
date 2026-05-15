@@ -49,12 +49,14 @@ export default function Hero() {
       )
       .fromTo(line1Ref.current,
         { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
-        { clipPath: 'inset(0% 0 0 0)', opacity: 1, duration: 1.2, ease: 'sine.out' },
+        { clipPath: 'inset(0% 0 0 0)', opacity: 1, duration: 1.2, ease: 'sine.out',
+          onComplete: () => { if (line1Ref.current) line1Ref.current.style.clipPath = 'none' } },
         '-=0.3'
       )
       .fromTo(line2Ref.current,
         { clipPath: 'inset(100% 0 0 0)', opacity: 0 },
-        { clipPath: 'inset(0% 0 0 0)', opacity: 1, duration: 1.2, ease: 'sine.out' },
+        { clipPath: 'inset(0% 0 0 0)', opacity: 1, duration: 1.2, ease: 'sine.out',
+          onComplete: () => { if (line2Ref.current) line2Ref.current.style.clipPath = 'none' } },
         '-=0.9'
       )
       .fromTo(subRef.current,
@@ -156,7 +158,7 @@ export default function Hero() {
           </h1>
 
           {/* H1 line 2 */}
-          <div className="overflow-hidden mb-6">
+          <div className="mb-6">
             <span
               ref={line2Ref}
               className="block font-display italic font-normal text-amber opacity-0"
