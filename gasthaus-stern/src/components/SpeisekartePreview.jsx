@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SPEISEN } from '../data/speisen'
+import { SPEISEN, DIETARY_LABELS } from '../data/speisen'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SpeisekartePreview() {
@@ -91,10 +91,24 @@ export default function SpeisekartePreview() {
                   className="menu-row opacity-0 flex items-start justify-between gap-4 hover:-translate-y-0.5 transition-transform duration-200 ease-out group"
                 >
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline gap-2">
+                    <div className="flex items-baseline gap-2 flex-wrap">
                       <span className="font-display font-medium text-[18px] text-chestnut leading-snug">
                         {gericht.name}
                       </span>
+                      {/* dietary badges */}
+                      {gericht.dietary?.length > 0 && (
+                        <span className="inline-flex items-center gap-1 shrink-0">
+                          {gericht.dietary.map(d => (
+                            <span
+                              key={d}
+                              className="bg-sage/15 text-sage-deep border border-sage/30 rounded-full px-2 py-0.5 font-sans font-medium text-[10px] tracking-wide whitespace-nowrap"
+                              title={DIETARY_LABELS[d]?.label}
+                            >
+                              {DIETARY_LABELS[d]?.label || d}
+                            </span>
+                          ))}
+                        </span>
+                      )}
                       {/* dotted leader */}
                       <span
                         className="flex-1 border-b-2 border-dotted border-chestnut/20 mb-0.5 min-w-[1.5rem]"

@@ -2,7 +2,8 @@ import { useState, useEffect, useRef, useId } from 'react'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { OEFFNUNGSZEITEN, isOpenNow } from '../data/oeffnungszeiten'
 
-const CONTACT_EMAIL = 'kontakt@gasthaus-stern.at'
+const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'kontakt@gasthaus-stern.at'
+const FORMSPREE_ID  = import.meta.env.VITE_FORMSPREE_ID || ''
 
 export default function Kontakt() {
   const { offen, bisUhr } = isOpenNow()
@@ -12,19 +13,45 @@ export default function Kontakt() {
     name: '', telefon: '', datum: '', uhrzeit: '', personen: '', nachricht: ''
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(null)
   const liveRef = useRef(null)
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const openMailto = () => {
     const { name, telefon, datum, uhrzeit, personen, nachricht } = formData
     const body = encodeURIComponent(
       `Name: ${name}\nTelefon / E-Mail: ${telefon}\nDatum: ${datum}\nUhrzeit: ${uhrzeit}\nPersonen: ${personen}\nNachricht: ${nachricht}`
     )
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=Reservierungsanfrage&body=${body}`
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setSubmitError(null)
+
+    // Formspree path — only when env var is set
+    if (FORMSPREE_ID) {
+      try {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...formData, _subject: 'Reservierungsanfrage' }),
+        })
+        if (res.ok) {
+          setSubmitted(true)
+          return
+        }
+        // Fall through to mailto on non-2xx response
+      } catch (err) {
+        // Network failure — fall through to mailto
+      }
+    }
+
+    // Default mailto path
+    openMailto()
     setSubmitted(true)
   }
 

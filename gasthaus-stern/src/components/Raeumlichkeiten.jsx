@@ -96,12 +96,15 @@ export default function Raeumlichkeiten() {
             >
               {/* Image */}
               <div className="aspect-[16/10] overflow-hidden relative">
-                {/* Unsplash: see alt for search keywords */}
+                {/* TODO: replace with real client photo — Unsplash keywords noted in KARTEN array above */}
                 <img
                   src={karte.bild}
                   alt={karte.bildAlt}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  width="800"
+                  height="500"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-chestnut/20 to-transparent pointer-events-none" aria-hidden="true" />
               </div>

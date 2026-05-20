@@ -1,3 +1,4 @@
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import StarLogo from './icons/StarLogo'
 import { isOpenNow } from '../data/oeffnungszeiten'
 import { MapPin } from 'lucide-react'
@@ -10,10 +11,11 @@ function FacebookIcon({ size = 16 }) {
   )
 }
 
-const CONTACT_EMAIL = 'kontakt@gasthaus-stern.at'
+const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'kontakt@gasthaus-stern.at'
 
+// href starting with '/' is a route; href starting with '#' is an anchor on Home
 const NAV_LINKS = [
-  { label: 'Speisekarte',       href: '#speisekarte' },
+  { label: 'Speisekarte',       href: '/speisekarte' },
   { label: 'Gastgarten & Saal', href: '#raeumlichkeiten' },
   { label: 'Über uns',          href: '#ueber-uns' },
   { label: 'Kontakt',           href: '#kontakt' },
@@ -21,10 +23,21 @@ const NAV_LINKS = [
 
 export default function Footer() {
   const { offen, bisUhr } = isOpenNow()
+  const location = useLocation()
+  const navigate = useNavigate()
 
-  const scrollTo = (href) => {
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  const handleNav = (href) => {
+    if (href.startsWith('#')) {
+      if (location.pathname === '/') {
+        const el = document.querySelector(href)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        navigate('/' + href) // Home will pick up hash on mount and scroll
+      }
+    } else {
+      navigate(href)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   return (
@@ -55,7 +68,7 @@ export default function Footer() {
           {NAV_LINKS.map(({ label, href }) => (
             <button
               key={href}
-              onClick={() => scrollTo(href)}
+              onClick={() => handleNav(href)}
               className="font-sans font-normal text-[14px] text-cream/80 hover:text-cream transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber rounded w-fit"
             >
               {label}
@@ -108,15 +121,18 @@ export default function Footer() {
 
           {/* Legal pills */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {['Impressum', 'Datenschutz'].map(label => (
-              <a
-                key={label}
-                href="#"
-                className="font-sans text-[12px] text-cream/60 hover:text-cream/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber rounded"
-              >
-                {label}
-              </a>
-            ))}
+            <Link
+              to="/impressum"
+              className="font-sans text-[12px] text-cream/60 hover:text-cream/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber rounded"
+            >
+              Impressum
+            </Link>
+            <Link
+              to="/datenschutz"
+              className="font-sans text-[12px] text-cream/60 hover:text-cream/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber rounded"
+            >
+              Datenschutz
+            </Link>
             <span className="font-sans text-[12px] text-cream/60">
               © 2026 Sieglinde Baumann e.U.
             </span>

@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-const HERO_IMAGE = '/hero.jpg'
+// TODO: replace with real client photo — Unsplash search keywords: "chestnut beer garden austrian inn summer afternoon"
+const HERO_IMAGE = 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80'
 
 // Kastanienblatt SVG path (simplified leaf shape)
 const LEAF_PATH = 'M12 2C8 6 6 10 8 15C5 13 3 15 4 18C6 16 8 17 10 20C9 23 11 25 14 24C13 21 15 20 18 22C20 19 19 16 16 15C19 11 18 6 14 3Z'
@@ -103,7 +104,10 @@ export default function Hero() {
         src={HERO_IMAGE}
         alt="Gastgarten unter Kastanienbäumen im Sommer, warmes Nachmittagslicht"
         className="absolute inset-0 w-full h-full object-cover object-center"
-        loading="eager"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
       />
 
       {/* Background blur */}

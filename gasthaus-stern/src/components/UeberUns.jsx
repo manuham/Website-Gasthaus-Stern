@@ -77,13 +77,16 @@ export default function UeberUns() {
 
         {/* Left — portrait image */}
         <div className="md:w-2/5 opacity-0" ref={imgRef}>
-          {/* Unsplash: austrian inn facade old building summer */}
+          {/* TODO: replace with real client photo — Unsplash keywords: austrian inn facade old building summer */}
           <img
             src={PORTRAIT_IMAGE}
             alt="Gasthaus Stern von außen, warmer Sommertag in Bludenz"
             className="w-full rounded-[2rem] shadow-luxury object-cover ring-1 ring-amber/20"
             style={{ aspectRatio: '3/4' }}
+            width="800"
+            height="1067"
             loading="lazy"
+            decoding="async"
           />
         </div>
 

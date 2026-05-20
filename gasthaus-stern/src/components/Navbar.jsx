@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import StarLogo from './icons/StarLogo'
 import { Menu, X, ChevronRight } from 'lucide-react'
 
+// href starting with '/' is a route; href starting with '#' is an anchor on Home
 const NAV_LINKS = [
-  { label: 'Speisekarte',       href: '#speisekarte' },
+  { label: 'Speisekarte',       href: '/speisekarte' },
   { label: 'Gastgarten & Saal', href: '#raeumlichkeiten' },
   { label: 'Über uns',          href: '#ueber-uns' },
   { label: 'Kontakt',           href: '#kontakt' },
@@ -12,18 +14,28 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
-  const sentinelRef               = useRef(null)
+  const location                  = useLocation()
+  const navigate                  = useNavigate()
+  const onHome                    = location.pathname === '/'
 
+  // Watch the hero sentinel only when on the home page; on sub-pages, keep navbar in "scrolled" style by default
   useEffect(() => {
+    if (!onHome) {
+      setScrolled(true)
+      return
+    }
     const sentinel = document.getElementById('hero-sentinel')
-    if (!sentinel) return
+    if (!sentinel) {
+      setScrolled(true)
+      return
+    }
     const obs = new IntersectionObserver(
       ([entry]) => setScrolled(!entry.isIntersecting),
       { threshold: 0 }
     )
     obs.observe(sentinel)
     return () => obs.disconnect()
-  }, [])
+  }, [onHome, location.pathname])
 
   // lock body scroll when sheet open
   useEffect(() => {
@@ -31,10 +43,27 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const scrollTo = (href) => {
+  // close mobile sheet on Escape
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [menuOpen])
+
+  const handleNav = (href) => {
     setMenuOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (href.startsWith('#')) {
+      if (onHome) {
+        const el = document.querySelector(href)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        navigate('/' + href) // Home picks up hash on mount and scrolls
+      }
+    } else {
+      navigate(href)
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
   }
 
   return (
@@ -47,23 +76,23 @@ export default function Navbar() {
           }`}
       >
         {/* Logo */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 rounded-full"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+          onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }}
         >
           <StarLogo size={28} color="#D4A24C" />
           <span className="font-display font-semibold text-[18px] text-chestnut leading-none">
             Gasthaus Stern
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-7">
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}>
               <button
-                onClick={() => scrollTo(href)}
+                onClick={() => handleNav(href)}
                 className="font-sans font-medium text-[14px] tracking-wide text-chestnut relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 rounded"
               >
                 {label}
@@ -75,7 +104,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <button
-          onClick={() => scrollTo('#kontakt')}
+          onClick={() => handleNav('#kontakt')}
           className="hidden md:flex items-center gap-1.5 bg-bordeaux hover:bg-bordeaux/90 text-cream rounded-full px-5 py-2 font-sans font-medium text-[14px] transition-transform duration-[240ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2"
         >
           Tisch reservieren
@@ -115,7 +144,7 @@ export default function Navbar() {
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}>
               <button
-                onClick={() => scrollTo(href)}
+                onClick={() => handleNav(href)}
                 className="font-display text-[32px] text-chestnut hover:text-amber transition-colors duration-200 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber rounded"
               >
                 {label}
@@ -126,7 +155,7 @@ export default function Navbar() {
 
         <div className="px-8 pb-12">
           <button
-            onClick={() => scrollTo('#kontakt')}
+            onClick={() => handleNav('#kontakt')}
             className="w-full flex items-center justify-center gap-2 bg-bordeaux text-cream rounded-full py-4 font-sans font-medium text-[16px] transition-transform duration-[240ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
           >
             Tisch reservieren

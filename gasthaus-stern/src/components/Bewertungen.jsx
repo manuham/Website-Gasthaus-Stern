@@ -67,7 +67,7 @@ export default function Bewertungen() {
           {BEWERTUNGEN.map((b, i) => (
             <div
               key={i}
-              className="bewertung-card opacity-0 bg-cream/[0.10] backdrop-blur-md border border-amber/20 rounded-[2rem] p-8 md:p-10 flex flex-col"
+              className="bewertung-card opacity-0 bg-cream/[0.08] backdrop-blur-sm border border-cream/15 rounded-[2rem] p-8 md:p-10 flex flex-col"
             >
               {/* Opening quote glyph */}
               <div
